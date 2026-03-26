@@ -25,9 +25,18 @@ public class Flower extends SceneObject {
 	private int vertexBuffer;
 	private int[] indices;
 	private int indexBuffer;
+	private Vector3f flowerColour = new Vector3f(1,0,0);
+	private Vector3f flowerPosition = new Vector3f(0, 1,0);
+	private float flowerScale = 0.2f;	
+	FlowerHead flowerHead;
 
 	public Flower(int nPetals) {
-		shader = ShaderLibrary.instance.compileShader(VERTEX_SHADER, FRAGMENT_SHADER);		
+		shader = ShaderLibrary.instance.compileShader(VERTEX_SHADER, FRAGMENT_SHADER);	
+		
+		flowerHead = new FlowerHead(nPetals, flowerColour);
+		flowerHead.setParent(this);
+		flowerHead.getMatrix().translate(flowerPosition).scale(flowerScale);
+		
 	
 		// make the stem of the flower
 

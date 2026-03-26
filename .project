@@ -3,6 +3,7 @@
 	<name>comp3170-prac-week5</name>
 	<comment></comment>
 	<projects>
+		<project>comp3170-lwjgl</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

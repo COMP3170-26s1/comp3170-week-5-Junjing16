@@ -61,11 +61,10 @@ public class FlowerHead extends SceneObject {
         
         indices = new int[numEdgePoints * 3];
         
-        int k = 0;
-        for (int i = 0; i <= numEdgePoints; i++) {
-        	 indices[k++] = 0; // Center point
-             indices[k++] = 1; // Current edge point// Next edge point (using modulo to wrap back to 1 at the end)
-             indices[k++] = (i % numEdgePoints) + 1;
+        for (int i = 0; i < numEdgePoints; i++) {
+        	 indices[i * 3] = 0;
+             indices[i * 3 + 1] = i + 1; 
+             indices[i * 3 + 2] = (i + 4) % numEdgePoints + 1;
         }
         
         indexBuffer = GLBuffers.createIndexBuffer(indices);
